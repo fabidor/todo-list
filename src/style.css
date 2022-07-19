@@ -1,0 +1,29 @@
+body{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+#content{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: lightgray;
+}
+
+#display{
+    
+}
+
+.todo{
+    display: grid;
+    grid-template-columns: 1fr 6fr 4fr 4fr;
+    gap: 15px;
+}
+
+.doneTask{
+    color: red;
+}

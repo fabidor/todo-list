@@ -27,17 +27,51 @@ const displayReset = (project) =>{
     while (display.firstChild){
         display.removeChild(display.firstChild);
     }
-    console.log(project);
+    const title = document.createElement("div");
+    title.textContent = project.name;
+    display.appendChild(title);
     for(let i = 0; i < project.toDoList.length; i++){
-        display.appendChild(addItemToDisplay(project.toDoList[i]));
+        display.appendChild(addItemToDisplay(project.toDoList[i], i));
     }
     return display;
 }
 
-const addItemToDisplay = (toDo) =>{
+const addItemToDisplay = (toDo, index) =>{
     const task = document.createElement('div');
     task.className="todo";
-    task.textContent=toDo.name;
+    task.setAttribute('id', index.toString());
+    const checkbox = document.createElement('input');
+    checkbox.setAttribute("type", "checkbox");
+    if(toDo.complete == true){
+        checkbox.checked = true;
+        task.classList.add("doneTask");
+    }
+    checkbox.addEventListener('click', () => {
+        if(checkbox.checked == true){
+            toDo.complete = true;
+            console.log(toDo.complete);
+            task.classList.add("doneTask");
+        } else{
+            toDo.complete = false;
+            console.log(toDo.complete)
+            if(task.classList.remove('doneTask'));
+        }
+    })
+       
+    task.appendChild(checkbox);
+    const toDoName = document.createElement('div');
+    toDoName.textContent=toDo.name;
+    task.appendChild(toDoName);
+    const toDoDate = document.createElement('div');
+    toDoDate.textContent = toDo.date;
+    task.appendChild(toDoDate);
+    const trash = document.createElement('button');
+    trash.textContent="Delete";
+    trash.onclick = () =>{
+        Umbrella.active.toDoList.splice(task.id, 1);
+        DynamicDom.repopulateDisplay();
+    }
+    task.appendChild(trash);
     return task;
 }
 

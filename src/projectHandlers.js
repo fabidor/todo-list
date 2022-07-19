@@ -2,7 +2,6 @@ class Project{
     constructor(name){
         this.name=name;
         this.toDoList=[];
-        this.idGenerator=0;
     }
     addToDo(todo){
         this.toDoList.push(todo);
