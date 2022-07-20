@@ -7,7 +7,17 @@ const menuReset = () => {
     }
     menu.appendChild(addItemToMenu(Umbrella.general));
     for(let i = 0; i < Umbrella.projectList.length; i++){
-        menu.appendChild(addItemToMenu(Umbrella.projectList[i]));
+        let component = addItemToMenu(Umbrella.projectList[i])
+        component.setAttribute('id', i);
+        menu.appendChild(component);
+        const trash = document.createElement('button');
+        trash.textContent="Delete"
+        trash.onclick = () => {
+            Umbrella.projectList.splice(component.id, 1);
+            DynamicDom.repopulateMenu();
+        }
+        component.appendChild(trash);
+        
     }
 }
 

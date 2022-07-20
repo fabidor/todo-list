@@ -27,3 +27,13 @@ body{
 .doneTask{
     color: red;
 }
+
+.form{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+fieldset{
+    grid-column: 1/3;
+}

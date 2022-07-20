@@ -3,7 +3,7 @@ import {Project, Overall, ToDo} from './projectHandlers.js';
 
 const newProjectForm = () =>{
     const element = document.createElement('div');
-    element.className="projectForm";
+    element.className="form";
     const formBlock = document.createElement('fieldset');
     element.appendChild(formBlock);
     const name = document.createElement('input');
@@ -21,14 +21,14 @@ const newProjectForm = () =>{
     cancel.onclick = () => {
         DynamicDom.repopulateMenu();
     }
-    formBlock.appendChild(submit);
-    formBlock.appendChild(cancel);
+    element.appendChild(submit);
+    element.appendChild(cancel);
     return element;
 }
 
 const newTodoForm = () => {
     const element = document.createElement('div');
-    element.className="todoForm";
+    element.className="form";
     const formBlock = document.createElement('fieldset');
     element.appendChild(formBlock);
     const name = document.createElement('input');
