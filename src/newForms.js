@@ -44,6 +44,7 @@ const newTodoForm = () => {
         const todo = new ToDo(document.querySelector("#name").value, document.querySelector('#date').value);
         Umbrella.active.addToDo(todo);
         DynamicDom.repopulateDisplay();
+        DynamicDom.repopulateMenu();
     }
     const cancel = document.createElement('button');
     cancel.textContent = "Cancel";

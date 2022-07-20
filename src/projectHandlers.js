@@ -1,21 +1,28 @@
+import {Umbrella, DynamicDom} from './index.js'
+
 class Project{
-    constructor(name){
+    constructor(name, toDoList = []){
         this.name=name;
-        this.toDoList=[];
+        this.toDoList=toDoList;
     }
     addToDo(todo){
         this.toDoList.push(todo);
+        localStorage.clear();
+        localStorage.setItem("Umbrella", JSON.stringify(Umbrella));
+    
     }
 }
 
 class Overall{
-    constructor(gen){
-        this.projectList=[];
+    constructor(gen, projectList = []){
+        this.projectList=projectList;
         this.general=gen;
         this.active=gen;
     }
     addProject(project){
         this.projectList.push(project);
+        localStorage.clear();
+        localStorage.setItem("Umbrella", JSON.stringify(Umbrella));
     }
     activate(project){
         this.active=project;

@@ -24,7 +24,13 @@ const menuReset = () => {
 const addItemToMenu = (project) => {
     const newItem = document.createElement('div');
     newItem.className="project";
-    newItem.textContent=project.name;
+    const taskCount = document.createElement('div');
+    taskCount.textContent=project.toDoList.length.toString();
+    taskCount.className='taskCount';
+    newItem.appendChild(taskCount);
+    const projectName = document.createElement('div');
+    projectName.textContent=project.name;
+    newItem.appendChild(projectName);
     newItem.addEventListener('click', () => {
         Umbrella.activate(project);
         DynamicDom.repopulateDisplay();
@@ -66,6 +72,8 @@ const addItemToDisplay = (toDo, index) =>{
             console.log(toDo.complete)
             if(task.classList.remove('doneTask'));
         }
+        localStorage.clear();
+        localStorage.setItem("Umbrella", JSON.stringify(Umbrella));
     })
        
     task.appendChild(checkbox);
@@ -80,6 +88,7 @@ const addItemToDisplay = (toDo, index) =>{
     trash.onclick = () =>{
         Umbrella.active.toDoList.splice(task.id, 1);
         DynamicDom.repopulateDisplay();
+        DynamicDom.repopulateMenu();
     }
     task.appendChild(trash);
     return task;

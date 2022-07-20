@@ -1,6 +1,7 @@
 import {Project, Overall, ToDo} from './projectHandlers.js';
 import {newProjectForm, newTodoForm} from './newForms.js';
 import {menuReset, displayReset} from './DOMResets.js';
+import remakeUmbrella from './localStorageHandlers.js';
 import './style.css';
 
 const content = document.querySelector("#content");
@@ -9,9 +10,16 @@ const display = document.querySelector("#display");
 
 
 
+if(!localStorage.getItem("Umbrella")){
+    
+    var General = new Project("General");
+    var Umbrella = new Overall(General);
+    
+} else{
+    Umbrella = (JSON.parse(localStorage.getItem("Umbrella")));
+    Umbrella = remakeUmbrella(Umbrella);
+}
 
-const General = new Project("General");
-const Umbrella = new Overall(General);
 
 
 
