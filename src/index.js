@@ -57,7 +57,7 @@ const DynamicDom = (() => {
 const projectButton = () => {
     const addProject = document.createElement('button');
     addProject.id="projectButton";
-    addProject.textContent="New Project";
+    addProject.textContent="+";
     addProject.onclick = () => DynamicDom.createProjectForm();
 
     return addProject;
@@ -66,7 +66,7 @@ const projectButton = () => {
 const todoButton = () => {
     const addToDo = document.createElement('button');
     addToDo.id="todoButton";
-    addToDo.textContent= "New Task";
+    addToDo.textContent= "+";
     addToDo.onclick = () => DynamicDom.createTodoForm();
 
     return addToDo;

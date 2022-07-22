@@ -5,7 +5,7 @@ const remakeToDos = (project) => {
     let toDoArray = [];
     for (let i = 0; i < project.toDoList.length; i++){
         if(project.toDoList[i].date){
-        let newToDo = new ToDo(project.toDoList[i].name, project.toDoList[i].date, project.toDoList[i].complete);
+        let newToDo = new ToDo(project.toDoList[i].name, project.toDoList[i].date, project.toDoList[i].notes, project.toDoList[i].complete);
         toDoArray.push(newToDo);
         }
         else{

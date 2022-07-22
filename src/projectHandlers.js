@@ -33,9 +33,10 @@ class Overall{
 }
 
 class ToDo{
-    constructor(name, date="No Date Set", complete=false){
+    constructor(name, date="No Date Set", notes = "", complete=false){
         this.name=name;
         this.date=date;
+        this.notes = notes;
         this.complete=complete;
     }
 }
